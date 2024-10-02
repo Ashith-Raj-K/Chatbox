@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat box</title>
+    <style>
+        body{
+            background-color: cadetblue;
+            align-content: center;
+            align-items: center;
+            
+        }
+        .center-div {
+            width: 300px;           /* Fixed width for horizontal centering */
+            margin: 0 auto;          /* Automatically adjust left and right margins */
+            padding: 20px;
+            background-color: #127e88;
+            text-align: center;      /* Optional: Centers text inside the div */
+            border: 1px solid #ccc;
+        }
+      
+        #display{
+            color: floralwhite;
+            background-color: rgb(24, 26, 23);
+            width: 300px;
+            height: 150px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 15px; /* This creates the curve */
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+        #message{
+            color: rgb(254, 254, 254);
+            background-color: rgb(52, 49, 49);
+            width: 250px ;
+            height: 25px ;
+            border-radius: 10px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 16px ;
+        }
+        #button{
+            color: burlywood;
+            background-color: rgb(234, 250, 6);
+            border-radius: 2px;
+        }  
+        </style>
+</head>
+<body>
+    <!-- <p id="display"></p> -->
+
+    <div class="center-div">
+    <textarea id="display" rows="10" cols="20" readonly></textarea>    
+    <input type="text" id="message">
+    <input type="button" id="button" onclick="showMessage()" value="^">
+    </div>
+    <script>
+        let values = []
+    function showMessage(){
+        let textboxvalue = document.getElementById('message')
+        let messages = textboxvalue.value 
+        if (messages !== ""){
+            values.push(messages); //values already defined and stored as array
+            // document.getElementById('display').innerHTML = values.join("<br>");
+            document.getElementById('display').value = values.join("\n");
+            textboxvalue.value = "" ;
+        
+        }
+    }
+    </script>
+</body>
+</html>
